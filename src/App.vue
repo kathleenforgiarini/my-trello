@@ -4,27 +4,43 @@
     <div class="board">
       <div class="lane">
         <h2 class="lane-title">Backlog</h2>
-        <Card v-for="card in cards.backlog" :key="card.id">
-          {{ card.text }}
-        </Card>
+        <Container group-name="trello">
+          <Draggable v-for="card in cards.backlog" :key="card.id">
+            <Card>
+              {{ card.text }}
+            </Card>
+          </Draggable>
+        </Container>
       </div>
       <div class="lane">
         <h2 class="lane-title">Desenvolvimento</h2>
-        <Card v-for="card in cards.dev" :key="card.id">
-          {{ card.text }}
-        </Card>
+        <Container group-name="trello">
+          <Draggable v-for="card in cards.dev" :key="card.id">
+            <Card>
+              {{ card.text }}
+            </Card>
+          </Draggable>
+        </Container>
       </div>
       <div class="lane">
         <h2 class="lane-title">Testes</h2>
-        <Card v-for="card in cards.testes" :key="card.id">
-          {{ card.text }}
-        </Card>
+        <Container group-name="trello">
+          <Draggable v-for="card in cards.testes" :key="card.id">
+            <Card>
+              {{ card.text }}
+            </Card>
+          </Draggable>
+        </Container>
       </div>
       <div class="lane">
         <h2 class="lane-title">Concluídos</h2>
-        <Card v-for="card in cards.concluidos" :key="card.id">
-          {{ card.text }}
-        </Card>
+        <Container group-name="trello">
+          <Draggable v-for="card in cards.concluidos" :key="card.id">
+            <Card>
+              {{ card.text }}
+            </Card>
+          </Draggable>
+        </Container>
       </div>
     </div>
   </div>
@@ -34,12 +50,15 @@
 import Header from './components/Header';
 import Card from './components/Card';
 import initialCards from './initialCards';
+import {Container, Draggable} from "vue-smooth-dnd";
 
 export default {
   name: 'App',
   components: {
     Header,
     Card,
+    Container, 
+    Draggable,
   },
   data: () => ({
     cards: {
